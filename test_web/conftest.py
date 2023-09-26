@@ -38,9 +38,14 @@ else:
 
 @pytest.fixture
 def driver():
+	service = Service()
 	chrome_options = Options()
 	chrome_options.add_argument("--headless")
-	service = Service(executable_path=ChromeDriverManager().install())
+	chrome_options.add_argument("--no-sandbox")
+	chrome_options.add_argument("--disable-dev-shm-usage")
+	chrome_prefs = {}
+	chrome_options.experimental_options["prefs"] = chrome_prefs
+	chrome_prefs["profile.default_content_settings"] = {"images": 2}
 	driver = webdriver.Chrome(service=service, options=chrome_options)
 	driver.set_window_size(width = 1920, height = 1080)
 	driver.maximize_window()

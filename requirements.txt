@@ -3,7 +3,7 @@ allure-python-commons==2.13.2
 pytest==7.3.1
 pymysql==1.0.3
 requests==2.31.0
-selenium==4.9.1
+selenium==4.11.2
 webdriver-manager==3.8.6
 urllib3==1.26.6
 pytest-xdist==3.3.1
